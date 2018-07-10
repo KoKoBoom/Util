@@ -75,6 +75,7 @@
     <Compile Include="CacheHelper.cs" />
     <Compile Include="CmdHelper.cs" />
     <Compile Include="ConfigHelper .cs" />
+    <Compile Include="Encrypt.cs" />
     <Compile Include="Extensions\ApiResult.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="CompressHelper.cs" />

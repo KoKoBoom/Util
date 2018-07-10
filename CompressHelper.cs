@@ -37,7 +37,7 @@ namespace UtilTool
         /// <param name="strDirectory">解压到哪个目录</param>
         /// <param name="password">密码</param>
         /// <param name="overWrite">是否覆盖</param>
-        public static void Decompression(string filePath, string strDirectory, string password = null, bool overWrite = true)
+        public static void Decompression(string filePath, string strDirectory="", string password = null, bool overWrite = true)
         {
             if (!File.Exists(filePath)) { throw new FileNotFoundException(); }
             strDirectory = (string.IsNullOrWhiteSpace(strDirectory) ? Path.GetDirectoryName(filePath) : strDirectory).TrimEnd('\\') + "\\";
