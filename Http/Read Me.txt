@@ -1,0 +1,36 @@
+﻿推荐使用 Flurl.Http
+NuGet 搜索 Flurl.Http 添加引用
+
+编码示例：
+using Flurl.Http;
+using Flurl; 
+
+public async Task<dynamic> Foo(int id){
+
+	// GET
+	var res = await url
+					.SetQueryParams(new { value = "jjda+\fsdf//d%!(&%())_+352 dsajf;lut" })
+					.GetAsync().ReceiveJson();
+	// POST
+	var res = await url
+					.WithHeaders(new { token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJUYWtpIiwiZXhwIjoxNTIxNjIxNDU4LCJpYXQiOjE1MjE2MTc4NTh9.Fzl7HVsNivUyescLkMJDm3f5vIDWKWShd/iS63xic7Q=" })
+					.PostJsonAsync(new { id = 0, jwt_secretkey = "1234567890QWE!@#+JKL 中文fd\d", timeout = 111 })
+					.ReceiveJson();
+	// 下载
+	await url.DownloadFileAsync("C:\\download\\")
+
+	// 上传
+	return await url
+				.PostMultipartAsync(async mp => mp
+					.AddFile("file1", "C:/public/pt_frame_index.js")
+					.AddStringParts(new { name = "111", value = "222" }))
+					.ReceiveJson();
+}
+
+
+优点：
+	1.自动处理加号（+）变成空格（ ）的问题
+	2.支持链式调用，可读性好，使用方便
+	3.多参数设置支持匿名对象 new { key=value,key1=value1 }
+	4.封装了下载、上传接口，使用方便
+
